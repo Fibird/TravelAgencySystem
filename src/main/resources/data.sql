@@ -1,1 +1,1 @@
-REPLACE INTO `role` VALUES (1,'root');
+REPLACE INTO `role` VALUES (1,'ADMIN');
