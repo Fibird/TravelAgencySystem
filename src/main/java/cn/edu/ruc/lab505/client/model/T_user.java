@@ -41,10 +41,11 @@ public class T_user{
 
     
     @Column(name = "userPhone")
-    @NotEmpty(message = "*Please provide your last name")
+    @NotEmpty(message = "*Please provide your phone")
     private String phone;
     
     @Column(name = "userState")
+    @NotEmpty(message = "*Please provide your user type")
     private int type;
 
     public int getId() {
@@ -81,8 +82,5 @@ public class T_user{
 	public void setType(int type) {
 		this.type = type;
 	}
-	
-
-
 }
 

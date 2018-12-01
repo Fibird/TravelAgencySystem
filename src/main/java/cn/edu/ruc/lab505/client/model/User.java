@@ -33,9 +33,9 @@ public class User {
     @Column(name = "name")
     @NotEmpty(message = "*Please provide your name")
     private String name;
-    @Column(name = "last_name")
+    @Column(name = "userType")
     @NotEmpty(message = "*Please provide your last name")
-    private String lastName;
+    private String userType;
     @Column(name = "active")
     private int active;
     @ManyToMany(cascade = CascadeType.REMOVE)
@@ -65,11 +65,12 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public String getUserType() {
+		return userType;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	public int getActive() {
 		return active;

@@ -112,15 +112,15 @@ public class LoginController {
                   .getAuthentication().getAuthorities());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        
+        modelAndView.addObject("userName", "Welcome " + user.getName() + " " + " (" + user.getEmail() + ")");
+
           if (roles.contains("USER")) {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with User Role");
               modelAndView.setViewName("home");
           }
-          else if (roles.contains("ROOT")) {
+          else {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
-        	  modelAndView.setViewName("home");
+        	  modelAndView.setViewName("index");
           }
           return modelAndView;
     }
