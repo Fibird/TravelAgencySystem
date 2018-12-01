@@ -4,9 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import cn.edu.ruc.lab505.client.model.*;
-import cn.edu.ruc.lab505.client.service.TuserService;
-import cn.edu.ruc.lab505.client.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,6 +12,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import cn.edu.ruc.lab505.client.model.T_user;
+import cn.edu.ruc.lab505.client.model.User;
+import cn.edu.ruc.lab505.client.service.TuserService;
+import cn.edu.ruc.lab505.client.service.UserService;
 
 @Controller
 public class LoginController {
@@ -25,27 +27,66 @@ public class LoginController {
     @Autowired
     private TuserService tuserService;
 
-//    @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-//    public ModelAndView login(){
-//        //从数据库取出数据  
-//        List<User> users = userService.findAll();  
-//        ModelAndView mav = new ModelAndView();  
-//        mav.setViewName("test");  
-//        mav.addObject("User", new User());  
-//        mav.addObject("Userlist", users);  
-//        return mav;  
-//    }
+	    @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
+	    public ModelAndView login(){
+	        //从数据库取出数据  
+	        List<User> users = userService.findAll();  
+	        ModelAndView mav = new ModelAndView();  
+	        mav.setViewName("login_lcy");  
+	        mav.addObject("User", new User());  
+	        mav.addObject("Userlist", users);  
+	        return mav;  
+	    }
     
-  @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-  public ModelAndView login(){
-      //从数据库取出数据  
-      List<T_user> users = tuserService.findAll();  
-      ModelAndView mav = new ModelAndView();  
-      mav.setViewName("index-2");  
-      mav.addObject("T_user", new T_user());  
-      mav.addObject("T_userlist", users);  
-      return mav;  
-  }
+    
+	  @RequestMapping(value={"/user-list.html"}, method = RequestMethod.GET)
+	  public ModelAndView ulist(){
+	      //从数据库取出数据  
+	      List<T_user> users = tuserService.findAll();  
+	      ModelAndView mav = new ModelAndView();  
+	      mav.setViewName("user-list");  
+	      mav.addObject("t_user", new T_user());  
+	      mav.addObject("T_userlist", users); 
+	      System.out.println("Now you are in user-list.html, list size = " + Integer.toString(users.size()));
+	      return mav;  
+	  }
+	  
+	  @RequestMapping(value={"/adduser"}, method = RequestMethod.GET)
+	  public ModelAndView tuserlist(){
+	      //从数据库取出数据  
+	      List<T_user> users = tuserService.findAll();  
+	      ModelAndView mav = new ModelAndView();  
+	      mav.setViewName("index-2");  
+	      mav.addObject("t_user", new T_user());  
+	      mav.addObject("T_userlist", users); 
+	      System.out.println("Now you are in login methos=get");
+	      return mav;  
+	  }
+  
+	  @RequestMapping(value={"/adduser"}, method = RequestMethod.POST)
+	  public ModelAndView createTUser(@Valid T_user t_user, BindingResult bindingResult) {
+	      System.out.println("1234");
+		  ModelAndView modelAndView = new ModelAndView();
+//	      User userExists = tuserService.findUserByEmail(user.getEmail());
+//	      if (userExists != null) {
+//	          bindingResult
+//	                  .rejectValue("email", "error.user",
+//	                          "There is already a user registered with the email provided");
+//	      }
+//	      if (bindingResult.hasErrors()) {
+//	          modelAndView.setViewName("registration");
+//	      } else {
+//	    	  tuserService.save(user);
+//	          modelAndView.addObject("successMessage", "User has been registered successfully");
+//	          modelAndView.addObject("user", new User());
+//	          modelAndView.setViewName("registration");
+//	
+//	      }
+	      System.out.println(t_user.getEmail());
+	      tuserService.save(t_user);
+	      modelAndView.setViewName("index-2");;
+	      return modelAndView;
+	  }
     
     
 
