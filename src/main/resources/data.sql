@@ -1,3 +1,4 @@
 REPLACE INTO `role` VALUES (1,'ROOT');
 REPLACE INTO `role` VALUES (2,'USER');
---REPLACE INTO `user` VALUES (1, "root@tas.com", "password", "Fang", "Zhou", 1);
+-- replace into `t_user` values (100,"hello","123456","1339170","xinxi@ruc.edu.cn",1);
+

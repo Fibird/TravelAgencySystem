@@ -27,4 +27,8 @@ public class TuserService {
 		return tuserRepository.findByNameAndPassword(name, password);
 	}
 	
+	
+	public void save(T_user tuser) {
+		tuserRepository.save(tuser);
+	}
 }

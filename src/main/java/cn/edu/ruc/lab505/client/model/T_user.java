@@ -38,12 +38,14 @@ public class T_user{
     @NotEmpty(message = "*Please provide your password")
     private String password;
     
-
-    
     @Column(name = "userPhone")
     @NotEmpty(message = "*Please provide your phone")
     private String phone;
     
+    @Column(name = "email")
+    @NotEmpty(message = "*Please provide your email")
+    private String email;
+       
     @Column(name = "userState")
     @NotEmpty(message = "*Please provide your user type")
     private int type;
@@ -74,6 +76,13 @@ public class T_user{
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getEmail() {
+		return email;
 	}
 	
 	public int getType() {
