@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<title>zoo list</title>  
+</head>  
+<body>  
+<a href='.'>首页</a>->动物列表  
+<br><br>  
+<!--           <form id="iform" th:action="@{/list.html?save}" th:method="post" th:object="${User}">  
+            <table border="1">    
+              <tr>   
+                <th>动物名称</th>    
+                <th>数量</th>   
+                <th>备注</th>  
+                <th>Action</th>  
+              </tr>    
+              <tr>   
+                <td><input type="text" name="oname" value="" th:value="*{oname}"/></td>  
+                <td><input type="text" name="ocount" value="" th:value="*{ocount}"/></td>  
+                <td><input type="text" name="memo" value="" th:value="*{memo}"/></td>  
+                <td><input type="submit" value="添加"/></td>  
+              </tr>  
+            </table>  
+        </form>  -->
+    <hr>  
+    <table border="1">  
+    <thead>  
+        <tr>  
+          <th>序号</th>  
+          <th>用户Id</th>    
+          <th>用户名</th>   
+          <th>用户密码</th>
+          <th>联系方式</th>
+          <th>用户类型</th>  
+        </tr>  
+    </thead>  
+	    <tbody th:remove="all-but-first">  
+	        <tr th:each="obj, objStat: ${T_userlist}">  
+	          <td th:text="${objStat.count}">1</td>  
+	          <td th:text="${obj.getId()}">1</td>  
+	          <td th:text="${obj.getName()}">zhou</td>  
+	          <td th:text="${obj.getPassword()}">123456</td>
+	          <td th:text="${obj.getPhone()}">010-625347</td>
+	          <td th:text="${obj.getType()}">1</td>   
+	        </tr>
+	    </tbody> 
+  </table>
+</body>  
+</html>

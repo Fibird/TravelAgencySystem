@@ -1,0 +1,64 @@
+<!DOCTYPE html>  
+<html xmlns:th="http://www.thymeleaf.org">  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<title>zoo list</title>  
+</head>  
+<body>  
+<a href='.'>首页</a>->动物列表  
+<br><br>  
+<!--           <form id="iform" th:action="@{/list.html?save}" th:method="post" th:object="${User}">  
+            <table border="1">    
+              <tr>   
+                <th>动物名称</th>    
+                <th>数量</th>   
+                <th>备注</th>  
+                <th>Action</th>  
+              </tr>    
+              <tr>   
+                <td><input type="text" name="oname" value="" th:value="*{oname}"/></td>  
+                <td><input type="text" name="ocount" value="" th:value="*{ocount}"/></td>  
+                <td><input type="text" name="memo" value="" th:value="*{memo}"/></td>  
+                <td><input type="submit" value="添加"/></td>  
+              </tr>  
+            </table>  
+        </form>  -->
+    <hr>  
+    <table border="1">  
+    <thead>  
+        <tr>  
+          <th>序号</th>  
+          <th>动物名称</th>    
+          <th>数量</th>   
+          <th>备注</th>  
+        </tr>  
+    </thead>  
+	    <tbody th:remove="all-but-first">  
+	        <tr th:each="obj, objStat: ${Userlist}">  
+	          <td th:text="${objStat.count}">1</td>  
+	          <td th:text="${obj.getId()}">大马猴</td>  
+	          <td th:text="${obj.email}">10</td>  
+	          <td th:text="${obj.lastName}">机灵古怪，俏皮活泼</td>  
+	        </tr>  
+	        <tr>  
+	          <td>2</td>  
+	          <td>大熊猫</td>  
+	          <td>80</td>  
+	          <td>体型笨重，喜欢吃竹子</td>  
+	        </tr>  
+	        <tr>  
+	          <td>3</td>  
+	          <td>澳洲羊驼</td>  
+	          <td>13</td>  
+	          <td>长相奇特，大国人俗称其草泥马</td>  
+	        </tr>  
+	        <tr>  
+	          <td>4</td>  
+	          <td>峨眉山猴</td>  
+	          <td>90</td>  
+	          <td>不怕人，有时候发贱抢游客面包吃</td>  
+	        </tr>  
+	    </tbody>  
+  </table>
+</body>  
+</html>

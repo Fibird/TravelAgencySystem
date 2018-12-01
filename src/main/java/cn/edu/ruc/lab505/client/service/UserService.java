@@ -38,4 +38,9 @@ public class UserService {
         return userRepository.save(user);
     }
 
+	public java.util.List<User> findAll() {
+		// TODO Auto-generated method stub
+		return userRepository.findAll();
+	}
+
 }

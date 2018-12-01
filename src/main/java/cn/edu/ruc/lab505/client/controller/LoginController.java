@@ -1,8 +1,11 @@
 package cn.edu.ruc.lab505.client.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import cn.edu.ruc.lab505.client.model.*;
+import cn.edu.ruc.lab505.client.service.TuserService;
 import cn.edu.ruc.lab505.client.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -18,15 +21,41 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private TuserService tuserService;
 
-    @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-    public ModelAndView login(){
+//    @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
+//    public ModelAndView login(){
+//        //从数据库取出数据  
+//        List<User> users = userService.findAll();  
+//        ModelAndView mav = new ModelAndView();  
+//        mav.setViewName("test");  
+//        mav.addObject("User", new User());  
+//        mav.addObject("Userlist", users);  
+//        return mav;  
+//    }
+    
+  @RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
+  public ModelAndView login(){
+      //从数据库取出数据  
+      List<T_user> users = tuserService.findAll();  
+      ModelAndView mav = new ModelAndView();  
+      mav.setViewName("index-2");  
+      mav.addObject("T_user", new T_user());  
+      mav.addObject("T_userlist", users);  
+      return mav;  
+  }
+    
+    
+
+    @RequestMapping(value={"/list"}, method = RequestMethod.GET)
+    public ModelAndView userlist(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
+        modelAndView.setViewName("test");
         return modelAndView;
     }
-
-
+    
     @RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
