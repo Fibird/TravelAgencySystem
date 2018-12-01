@@ -83,5 +83,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/lib/**", "/css/**", "/js/**", "/images/**", "/h-ui/**", "/h-ui.admin/**", "/Hui-iconfont/**");
+
     }
 }

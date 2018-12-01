@@ -88,7 +88,6 @@ public class LoginController {
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
-
         }
         return modelAndView;
     }
@@ -117,7 +116,7 @@ public class LoginController {
         
           if (roles.contains("USER")) {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with User Role");
-              modelAndView.setViewName("index-2");
+              modelAndView.setViewName("home");
           }
           else if (roles.contains("ROOT")) {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
