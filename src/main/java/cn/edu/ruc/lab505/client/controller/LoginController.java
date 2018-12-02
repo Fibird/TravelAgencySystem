@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cn.edu.ruc.lab505.client.model.T_user;
 import cn.edu.ruc.lab505.client.model.User;
+import cn.edu.ruc.lab505.client.model.Userrequest;
 import cn.edu.ruc.lab505.client.service.TuserService;
 import cn.edu.ruc.lab505.client.service.UserService;
 
@@ -131,6 +132,23 @@ public class LoginController {
         }
         return modelAndView;
     }
+    
+    @RequestMapping(value="/index-1", method = RequestMethod.GET)
+    public ModelAndView showindex(){
+        ModelAndView modelAndView = new ModelAndView();
+        Userrequest userrequest = new Userrequest();
+        modelAndView.addObject("userrequest", userrequest);
+        modelAndView.setViewName("showindex");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/index-1", method = RequestMethod.POST)
+    public ModelAndView request_post(@Valid User user, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println("aaaaaaaaaaaaaaaa");
+        return modelAndView;
+    }
+
 
 //    @RequestMapping(value="/home", method = RequestMethod.GET)
 //    public ModelAndView home(){
@@ -156,11 +174,11 @@ public class LoginController {
 
           if (roles.contains("USER")) {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with User Role");
-              modelAndView.setViewName("home");
+              modelAndView.setViewName("index-1");
           }
           else {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
-        	  modelAndView.setViewName("index");
+        	  modelAndView.setViewName("index-2");
           }
           return modelAndView;
     }

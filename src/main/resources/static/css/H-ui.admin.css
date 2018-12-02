@@ -1,15 +1,5 @@
 @charset "utf-8";
-/* -----------H-ui前端框架-------------
-* H-ui.admin.css v2.5
-* http://www.h-ui.net/
-* Created & Modified by guojunhui
-* Date modified 2016.05.31
-*
-* Copyright 2013-2016 北京颖杰联创科技有限公司 All rights reserved.
-* Licensed under MIT license.
-* http://opensource.org/licenses/MIT
-*
-*/
+
 html{height:100%}
 body{min-height: 100%;position: relative;font-size:14px;color:#333; background-color:#fff}
 a{color:#333}a:hover,a:focus,.maincolor,.maincolor a{color:#06c}
@@ -20,6 +10,8 @@ h4{line-height:30px}
 .Hui-header{position:absolute;top:0; right:0; left:0;height:44px;z-index:999; padding:0 15px}
 .Hui-aside{position: absolute;top:44px;bottom:0;left:0;padding-top:10px;width:199px;z-index:99;overflow:auto; background-color:rgba(238,238,238,0.98);_background-color:rgb(238,238,238);border-right: 1px solid #e5e5e5}
 .Hui-article-box{position: absolute;top:44px;right:0;bottom: 0;left:199px; overflow:hidden; z-index:1; background-color:#fff}
+
+.Hui-article-box_1{position: absolute;top:10px;right:0;bottom: 0;left:0; overflow:hidden; z-index:1; background-color:#fff}
 	.Hui-article{position: absolute;top:34px;bottom:0;left:0; right:0;overflow:auto;z-index:1}
 .Hui-container{ padding:45px 0 0}
 .Hui-aside,.Hui-article-box,.dislpayArrow{-moz-transition: all 0.2s ease 0s;-webkit-transition: all 0.2s ease 0s;-ms-transition: all 0.2s ease 0s;-o-transition: all 0.2s ease 0s;transition: all 0.2s ease 0s}
