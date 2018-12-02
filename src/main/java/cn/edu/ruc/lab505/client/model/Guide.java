@@ -80,7 +80,7 @@ public class Guide {
     public void setAge(int age) {
 		this.age = age;
 	}
-    public int getage() {
+    public int getAge() {
 		return age;
 	}
     

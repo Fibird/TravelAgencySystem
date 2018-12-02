@@ -42,7 +42,21 @@
 					<th width="100">操作</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody th:remove="all-but-first">
+				<tr class="text-c" th:each="obj, objStat: ${hotellist}">    
+		          <td th:text="${obj.getId()}">1</td>  
+		          <td th:text="${obj.getName()}">zhou</td>   
+		          <td th:text="${obj.getPhone()}">123456</td>
+		          <td th:text="${obj.getHotelState()}">010-625347</td>
+		          <td th:text="${obj.getHotelCity()}">1</td>
+		          <td th:text="${obj.getAddress()}">1</td>
+		          <td th:text="${obj.getAppintmentTime()}">1</td>
+		          <td th:text="${obj.getHotelStar()}">1</td>
+		          <td th:text="${obj.getHotelComment()}">1</td>
+		          <td th:text="${obj.getHotelRemaining()}">1</td>
+		          <td th:text="${obj.getHotelPrice()}">1</td>
+		          <td class="f-14 airline-manage"><a style="text-decoration:none" onClick="airline_edit('编辑','codeing.html','1')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="active_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>   
+		        </tr>
 				<tr class="text-c">
 					<td>10001</td>
 					<td>如家</td>

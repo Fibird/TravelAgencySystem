@@ -46,8 +46,9 @@ public class Hotel {
     @Column(name = "hotelAddress")
     @NotEmpty(message = "*Please provide your hotel Address")
     private String address;
-    
-    @Column(name = "appintmentTime")
+
+
+	@Column(name = "appintmentTime")
     @NotEmpty(message = "*Please provide your appintmeng time")
     private String appintmentTime;
     
@@ -66,4 +67,93 @@ public class Hotel {
     @Column(name = "hotelPrice")
     @NotEmpty(message = "*Please provide your hotel price")
     private long hotelPrice;
+    
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getHotelState() {
+		return hotelState;
+	}
+
+	public void setHotelState(String hotelState) {
+		this.hotelState = hotelState;
+	}
+
+	public String getHotelCity() {
+		return hotelCity;
+	}
+
+	public void setHotelCity(String hotelCity) {
+		this.hotelCity = hotelCity;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAppintmentTime() {
+		return appintmentTime;
+	}
+
+	public void setAppintmentTime(String appintmentTime) {
+		this.appintmentTime = appintmentTime;
+	}
+
+	public int getHotelRemaining() {
+		return hotelRemaining;
+	}
+
+	public void setHotelRemaining(int hotelRemaining) {
+		this.hotelRemaining = hotelRemaining;
+	}
+
+	public int getHotelStar() {
+		return hotelStar;
+	}
+
+	public void setHotelStar(int hotelStar) {
+		this.hotelStar = hotelStar;
+	}
+
+	public int getHotelComment() {
+		return hotelComment;
+	}
+
+	public void setHotelComment(int hotelComment) {
+		this.hotelComment = hotelComment;
+	}
+
+	public long getHotelPrice() {
+		return hotelPrice;
+	}
+
+	public void setHotelPrice(long hotelPrice) {
+		this.hotelPrice = hotelPrice;
+	}
+
 }

@@ -8,34 +8,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.edu.ruc.lab505.client.model.Hotel;
-import cn.edu.ruc.lab505.client.service.HotelService;
+import cn.edu.ruc.lab505.client.model.Guide;
+import cn.edu.ruc.lab505.client.service.GuideService;
 
 @Controller
-public class HotelController {
-	
+public class GuideController {
 	@Autowired
-	HotelService hotelSercie;
-
-	@RequestMapping(value={"/hotel-add.html"}, method = RequestMethod.GET)
+	GuideService guideService;
+	
+	@RequestMapping(value={"/guide-add.html"}, method = RequestMethod.GET)
 	public ModelAndView addHotel() {
 		ModelAndView modelAndView = new ModelAndView();
 //		airlineService.saveAirline(airline);
 //		modelAndView.addObject("successMessage", attributeValue);
-		modelAndView.setViewName("hotel-add");
+		modelAndView.setViewName("guide-add");
 		return modelAndView;
 	}
 	
-	@RequestMapping(value={"/hotel-list.html"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/guide-list.html"}, method = RequestMethod.GET)
 	public ModelAndView listHotel() {
 		ModelAndView modelAndView = new ModelAndView();
-		List<Hotel> hotellist = hotelSercie.findAll();
-		modelAndView.addObject("hotellist",hotellist);
-		modelAndView.setViewName("hotel-list");
+		List<Guide> guidelist = guideService.findAll();
+		modelAndView.addObject("guidelist",guidelist);
+		modelAndView.setViewName("guide-list");
 		return modelAndView;
 	}
-	public HotelController() {
-		// TODO Auto-generated constructor stub
-	}
-
 }
