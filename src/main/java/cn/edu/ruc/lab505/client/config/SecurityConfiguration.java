@@ -64,8 +64,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .antMatchers("/").permitAll()
         .antMatchers("/login").permitAll()
         .antMatchers("/registration").permitAll()
-        .antMatchers("/home/**").hasAuthority("USER")
-        .antMatchers("/home/**").hasAuthority("ROOT")
+        .antMatchers("/home/**").hasAnyAuthority("ROOT", "USER")
+//        .antMatchers("/home/**").hasAuthority("USER")
         .anyRequest()
         .authenticated().and().csrf().disable().formLogin()
         .loginPage("/login").failureUrl("/login?error=true")
@@ -75,7 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and().logout()
         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
         .logoutSuccessUrl("/").and().exceptionHandling()
-        .accessDeniedPage("/access-denied");
+        .accessDeniedPage("/access-denied").and().headers().frameOptions().disable();
 //=======
 //    	http.headers().frameOptions().disable();
 //        http.

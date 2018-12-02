@@ -52,12 +52,22 @@ public class LoginController {
 	      return mav;  
 	  }
 	  
+//		@RequestMapping(value={"/addairline"}, method = RequestMethod.GET)
+//		public ModelAndView AirlineAddHtml() {
+//			ModelAndView modelAndView = new ModelAndView();
+////			airlineService.saveAirline(airline);
+////			modelAndView.addObject("successMessage", attributeValue);
+//			modelAndView.setViewName("user-add");
+//			modelAndView.addObject("t_user", new T_user());  
+//			return modelAndView;
+//		}
+	  
 	  @RequestMapping(value={"/adduser"}, method = RequestMethod.GET)
 	  public ModelAndView tuserlist(){
 	      //从数据库取出数据  
 	      List<T_user> users = tuserService.findAll();  
 	      ModelAndView mav = new ModelAndView();  
-	      mav.setViewName("index-2");  
+	      mav.setViewName("user-add");  
 	      mav.addObject("t_user", new T_user());  
 	      mav.addObject("T_userlist", users); 
 	      System.out.println("Now you are in login methos=get");
@@ -85,7 +95,7 @@ public class LoginController {
 //	      }
 	      System.out.println(t_user.getEmail());
 	      tuserService.save(t_user);
-	      modelAndView.setViewName("index-2");;
+	      modelAndView.setViewName("user-add");;
 	      return modelAndView;
 	  }
     
@@ -160,7 +170,7 @@ public class LoginController {
           }
           else {
         	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
-        	  modelAndView.setViewName("index");
+        	  modelAndView.setViewName("index-2");
           }
           return modelAndView;
     }

@@ -1,4 +1,5 @@
 package cn.edu.ruc.lab505.client.model;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -7,8 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +29,8 @@ import lombok.NoArgsConstructor;
 public class Airline {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "airlineid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
     @Column(name = "departure")
@@ -36,27 +42,29 @@ public class Airline {
     private String destination;
     
     @Column(name = "departureTime")
-    @NotEmpty(message = "*Please provide airline departureTime")
-    private Timestamp departureTime;
+//    @NotNull(message = "*Please provide airline departureTime")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm") 
+    private String departureTime;
     
     @Column(name = "arrivalTime")
-    @NotEmpty(message = "*Please provide airline arrivalTime")
-    private Timestamp arrivalTime;
+//    @NotNull(message = "*Please provide airline arrivalTime")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private String arrivalTime;
     
     @Column(name = "airlinePrice")
-    @NotEmpty(message = "*Please provide your airline price")
-    private long airlinePrice;
+    @NotNull(message = "*Please provide your airline price")
+    private float airlinePrice;
     
     @Column(name = "remainNum")
-    @NotEmpty(message = "*Please provide airline remaining")
-    private int remainNum;
+    @NotNull(message = "*Please provide airline remaining")
+    private float remainNum;
     
     @Column(name = "duration")
-    @NotEmpty(message = "*Please provide airline duration")
+    @NotNull(message = "*Please provide airline duration")
     private float duration;
 
     @Column(name = "status")
-    @NotEmpty(message = "*Please provide airline status,1-normal,2-offline,3-delete")
+    @NotNull(message = "*Please provide airline status,1-normal,2-offline,3-delete")
     private int status;
     
     public void setId(int id) {
@@ -69,7 +77,13 @@ public class Airline {
     public void setDeparture(String departure) {
 		this.departure = departure;
 	}
-    public String getDeparture() {
+    @Override
+	public String toString() {
+		return "Airline [id=" + id + ", departure=" + departure + ", destination=" + destination + ", departureTime="
+				+ departureTime + ", arrivalTime=" + arrivalTime + ", airlinePrice=" + airlinePrice + ", remainNum="
+				+ remainNum + ", duration=" + duration + ", status=" + status + "]";
+	}
+	public String getDeparture() {
 		return departure;
 	}
     
@@ -80,31 +94,31 @@ public class Airline {
 		return destination;
 	}
     
-    public void setDepartureTime(Timestamp departureTime) {
+    public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
-    public Timestamp getDepartureTime() {
+    public String getDepartureTime() {
 		return departureTime;
 	}
     
-    public void setArrivalTime(Timestamp arrivalTime) {
+    public void setArrivalTime(String arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-    public Timestamp getArrivalTime() {
+    public String getArrivalTime() {
 		return arrivalTime;
 	}
     
-    public void setAirlinePrice(long airlinePrice) {
+    public void setAirlinePrice(float airlinePrice) {
 		this.airlinePrice = airlinePrice;
 	}
-    public long getAirlinePrice() {
+    public float getAirlinePrice() {
 		return airlinePrice;
 	}
     
-    public void setRemainNum(int remainNum) {
+    public void setRemainNum(float remainNum) {
 		this.remainNum = remainNum;
 	}
-    public int getRemainNum() {
+    public float getRemainNum() {
 		return remainNum;
 	}
     
