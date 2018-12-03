@@ -29,11 +29,15 @@ import lombok.NoArgsConstructor;
 public class Airline {
 
     @Id
-    @Column(name = "airlineid")
+    @Column(name = "airlineInfoid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
-    @Column(name = "departure")
+    @Column(name = "airlineid")
+    @NotEmpty(message = "*Please provide airline departure")
+    private String airlineId;
+    
+	@Column(name = "departure")
     @NotEmpty(message = "*Please provide airline departure")
     private String departure;
     
@@ -47,8 +51,8 @@ public class Airline {
     private String departureTime;
     
     @Column(name = "arrivalTime")
-//    @NotNull(message = "*Please provide airline arrivalTime")
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @NotNull(message = "*Please provide airline arrivalTime")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
     private String arrivalTime;
     
     @Column(name = "airlinePrice")
@@ -57,7 +61,7 @@ public class Airline {
     
     @Column(name = "remainNum")
     @NotNull(message = "*Please provide airline remaining")
-    private float remainNum;
+    private int remainNum;
     
     @Column(name = "duration")
     @NotNull(message = "*Please provide airline duration")
@@ -115,10 +119,10 @@ public class Airline {
 		return airlinePrice;
 	}
     
-    public void setRemainNum(float remainNum) {
+    public void setRemainNum(int remainNum) {
 		this.remainNum = remainNum;
 	}
-    public float getRemainNum() {
+    public int getRemainNum() {
 		return remainNum;
 	}
     
@@ -134,5 +138,15 @@ public class Airline {
 	}
     public int getStatus() {
 		return status;
+	}
+    
+    public String getAirlineId() {
+		return airlineId;
+	}
+	public void setAirlineId(String airlineId) {
+		this.airlineId = airlineId;
+	}
+	public void setId(long id) {
+		this.id = id;
 	}
 }
