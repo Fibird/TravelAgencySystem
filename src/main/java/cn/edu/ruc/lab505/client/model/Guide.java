@@ -22,7 +22,11 @@ public class Guide {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "aotoId")
+    private long autoId;
+    
     @Column(name = "guideId")
+    @NotEmpty(message = "*Please provide guide id")
     private long id;
     
     @Column(name = "guideGender")
