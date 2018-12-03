@@ -28,77 +28,78 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add">
+	<form class="form form-horizontal" id="form-article-add"  id="form--add"  th:action="@{/hotel-add.html}"
+                  th:object="${hotel}" method="post" action="#">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>宾馆ID：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="hotelid" name="hotelid" required>
+				<input type="text" th:field="*{id}" class="input-text" value="" placeholder="" id="hotelid" name="hotelid" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>宾馆名字：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="hotelname" name="hotelname" required>
+				<input type="text" th:field="*{name}" class="input-text" value="" placeholder="" id="hotelname" name="hotelname" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>宾馆电话：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="hotelphone" name="hotelphone" required>
+				<input type="text" th:field="*{phone}" class="input-text" value="" placeholder="" id="hotelphone" name="hotelphone" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所在省份：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="hotelstate" name="hotelstate" required>
+				<input type="text" th:field="*{hotelState}"  class="input-text" value="" placeholder="" id="hotelstate" name="hotelstate" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所在城市：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="hotelcity" name="hotelcity" required>
+				<input type="text" th:field="*{hotelCity}"  class="input-text" value="" placeholder="" id="hotelcity" name="hotelcity" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>地址：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="hoteladdr" name="hoteladdr" required>
+				<input type="text" th:field="*{address}" class="input-text" value="" placeholder="" id="hoteladdr" name="hoteladdr" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>预约时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" id="appointment_time" name="appointment_time" class="input-text Wdate" required>
+				<input type="text" th:field="*{appintmentTime}"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" id="appointment_time" name="appointment_time" class="input-text Wdate" required>
 			</div>
 		</div>
 
 
         <div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>机票价格，单位为元：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>宾馆价格，单位为元：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="hotelprice" name="hotelprice" required>
+				<input type="text" th:field="*{hotelPrice}" class="input-text" value="" placeholder="" id="hotelprice" name="hotelprice" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>剩余数量：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder=""  dragonfly="true" id="remain_num" name="remain_num" required>
+				<input type="text" th:field="*{hotelRemaining}"  class="input-text" value="" placeholder=""  dragonfly="true" id="remain_num" name="remain_num" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>宾馆评分：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder=""  dragonfly="true" id="hotelcomment" name="hotelcomment" required>
+				<input type="text" th:field="*{hotelComment}" class="input-text" value="" placeholder=""  dragonfly="true" id="hotelcomment" name="hotelcomment" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">宾馆星级：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="hotelstar" name="hotelstar">
+				<input type="text" th:field="*{hotelStar}" class="input-text" value="" placeholder="" id="hotelstar" name="hotelstar">
 			
 			</div>
 		</div>

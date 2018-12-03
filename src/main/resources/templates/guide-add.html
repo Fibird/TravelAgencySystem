@@ -1,4 +1,4 @@
-th:href=@{} <!--_meta 作为公共模版分离出去-->
+<!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -33,7 +33,7 @@ th:href=@{} <!--_meta 作为公共模版分离出去-->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游ID：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guideid" name="guideid" required>
+				<input type="text" th:field="*{id}" class="input-text" value="" placeholder="" id="guideid" name="guideid" required>
 			</div>
 		</div>
 		
@@ -41,57 +41,57 @@ th:href=@{} <!--_meta 作为公共模版分离出去-->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guidename" name="guidename" required>
+				<input type="text" th:field="*{name}" class="input-text" value="" placeholder="" id="guidename" name="guidename" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游性别：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="gender" name="gender" required>
+				<input type="text" th:field="*{gender}" class="input-text" value="" placeholder="" id="gender" name="gender" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游年龄：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guideage" name="guideage" required>
+				<input type="text" th:field="*{age}" class="input-text" value="" placeholder="" id="guideage" name="guideage" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游电话：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guidephone" name="guidephone" required>
+				<input type="text" th:field="*{phone}" class="input-text" value="" placeholder="" id="guidephone" name="guidephone" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所在省份：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="guidestate" name="guidestate" required>
+				<input type="text" th:field="*{state}" class="input-text" value="" placeholder="" id="guidestate" name="guidestate" required>
 			</div>
 		</div>
 		
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所在城市：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guidecity" name="guidecity" required>
+				<input type="text" th:field="*{city}" class="input-text" value="" placeholder="" id="guidecity" name="guidecity" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>擅长讲解景点ID：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="guide_attraction_id" name="guide_attraction_id" required>
+				<input type="text" th:field="*{attractionId}" class="input-text" value="" placeholder="" id="guide_attraction_id" name="guide_attraction_id" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游价格(元)：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="guideprice" name="guideprice" required>
+				<input type="text" th:field="*{price}" class="input-text" value="" placeholder="" id="guideprice" name="guideprice" required>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>导游评分：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="guidecomment" name="guidecomment" required>
+				<input type="text" th:field="*{comment}" class="input-text" value="" placeholder="" id="guidecomment" name="guidecomment" required>
 			</div>
 		</div>		
 		

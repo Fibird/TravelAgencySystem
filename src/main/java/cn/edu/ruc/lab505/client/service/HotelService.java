@@ -21,4 +21,8 @@ public class HotelService {
 	public List<Hotel> findAll(){
 		return hotelRepository.findAll();
 	}
+	
+	public Hotel saveHotel(Hotel hotel) {
+		return hotelRepository.save(hotel);
+	}
 }

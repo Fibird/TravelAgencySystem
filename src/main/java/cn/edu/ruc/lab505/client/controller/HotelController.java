@@ -2,8 +2,11 @@ package cn.edu.ruc.lab505.client.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,10 +21,17 @@ public class HotelController {
 	HotelService hotelSercie;
 
 	@RequestMapping(value={"/hotel-add.html"}, method = RequestMethod.GET)
-	public ModelAndView addHotel() {
+	public ModelAndView showHotelAdd() {
 		ModelAndView modelAndView = new ModelAndView();
-//		airlineService.saveAirline(airline);
-//		modelAndView.addObject("successMessage", attributeValue);
+		modelAndView.addObject("hotel",new Hotel());
+		modelAndView.setViewName("hotel-add");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/hotel-add.html"}, method = RequestMethod.POST)
+	public ModelAndView addHotel(@Valid Hotel hotel, BindingResult bind) {
+		ModelAndView modelAndView = new ModelAndView();
+		hotelSercie.saveHotel(hotel);
 		modelAndView.setViewName("hotel-add");
 		return modelAndView;
 	}

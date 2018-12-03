@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,7 +25,11 @@ public class Hotel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name  = "autoId")
+    private long autoId;
+    
     @Column(name = "hotelId")
+    @NotNull(message = "*please offer hotel id")
     private int id;
     
     @Column(name = "hotelName")
@@ -53,19 +58,19 @@ public class Hotel {
     private String appintmentTime;
     
     @Column(name = "hotelRemaining")
-    @NotEmpty(message = "*Please provide your hotel remaining")
+    @NotNull(message = "*Please provide your hotel remaining")
     private int hotelRemaining;
     
     @Column(name = "hotelStar")
-    @NotEmpty(message = "*Please provide your hotel star")
+    @NotNull(message = "*Please provide your hotel star")
     private int hotelStar;
     
     @Column(name = "hotelComment")
-    @NotEmpty(message = "*Please provide your hotel comment")
+    @NotNull(message = "*Please provide your hotel comment")
     private int hotelComment;
     
     @Column(name = "hotelPrice")
-    @NotEmpty(message = "*Please provide your hotel price")
+    @NotNull(message = "*Please provide your hotel price")
     private long hotelPrice;
     
     public int getId() {

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -26,15 +27,15 @@ public class Guide {
     private long autoId;
     
     @Column(name = "guideId")
-    @NotEmpty(message = "*Please provide guide id")
+    @NotNull(message = "*Please provide guide id")
     private long id;
     
     @Column(name = "guideGender")
-    @NotEmpty(message = "*Please provide guide gender,1:male,2:female")
+    @NotNull(message = "*Please provide guide gender,1:male,2:female")
     private boolean gender;
     
     @Column(name = "guideAge")
-    @NotEmpty(message = "*Please provide guide age")
+    @NotNull(message = "*Please provide guide age")
     private int age;
     
     @Column(name = "guideName")
@@ -55,15 +56,15 @@ public class Guide {
     private String city;
     
     @Column(name = "guideAttractionId")
-    @NotEmpty(message = "*Please provide the Attraction Id which guide is familar with")
+    @NotNull(message = "*Please provide the Attraction Id which guide is familar with")
     private long attractionId;
     
     @Column(name = "guideComment")
-    @NotEmpty(message = "*Please provide guide comment")
+    @NotNull(message = "*Please provide guide comment")
     private int comment;
     
     @Column(name = "guidePrice")
-    @NotEmpty(message = "*Please provide guide price for this attraction")
+    @NotNull(message = "*Please provide guide price for this attraction")
     private int price; 
     
     

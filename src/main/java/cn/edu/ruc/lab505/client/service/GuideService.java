@@ -22,4 +22,8 @@ public class GuideService {
 	public List<Guide> findAll() {
 		return guideRepository.findAll();
 	}
+	
+	public Guide saveGuide(Guide guide) {
+		return guideRepository.save(guide);
+	}
 }

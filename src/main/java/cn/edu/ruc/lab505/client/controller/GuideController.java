@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +29,9 @@ public class GuideController {
 	
 	@RequestMapping(value={"/guide-add.html"}, method = RequestMethod.POST)
 	public ModelAndView createGuide(@Valid Guide guide,BindingResult bindingResult) {
+		ModelAndView modelAndView = new ModelAndView();
+		guideService.saveGuide(guide);
+		modelAndView.setViewName("guide-add");
 		return null;
 		
 	}
