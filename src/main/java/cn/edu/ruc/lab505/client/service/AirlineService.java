@@ -28,6 +28,7 @@ public class AirlineService {
 	}
 	
 	public void update(Airline airline) {
+		airline.setStatus(1);
 		airlineRepository.save(airline);
 	}
 	
