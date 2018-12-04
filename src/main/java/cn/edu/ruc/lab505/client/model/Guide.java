@@ -23,7 +23,7 @@ public class Guide {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "aotoId")
+    @Column(name = "autoId")
     private long autoId;
     
     @Column(name = "guideId")

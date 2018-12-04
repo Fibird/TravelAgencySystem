@@ -1,48 +1,59 @@
 package cn.edu.ruc.lab505.client.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
-
-import javax.persistence.*;
-import org.hibernate.validator.constraints.*;
-
-import java.sql.Timestamp;
-import java.util.Set;
-
 
 public class Userrequest {
 
-	    private int aim;
+	    private String aim;
 
-	    private Timestamp departure_time;
+	    private String departure_time;
 
-	    private Timestamp return_time;
+	    private String return_time;
 
 	    private String depature_point;
 
 	    private int cost;
 
-		public int getAim() {
+
+		public String getAim() {
 			return aim;
 		}
 
-		public Timestamp getDeparture_time() {
+		public void setAim(String aim) {
+			this.aim = aim;
+		}
+
+		public String getDeparture_time() {
 			return departure_time;
 		}
 
-		public Timestamp getReturn_time() {
+		public void setDeparture_time(String departure_time) {
+			this.departure_time = departure_time;
+		}
+
+		public String getReturn_time() {
 			return return_time;
+		}
+
+		public void setReturn_time(String return_time) {
+			this.return_time = return_time;
 		}
 
 		public String getDepature_point() {
 			return depature_point;
 		}
 
+		public void setDepature_point(String depature_point) {
+			this.depature_point = depature_point;
+		}
+
 		public int getCost() {
 			return cost;
 		}
+
+		public void setCost(int cost) {
+			this.cost = cost;
+		}
+
+
 	
 }
