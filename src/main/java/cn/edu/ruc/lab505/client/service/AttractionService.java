@@ -25,4 +25,10 @@ public class AttractionService {
 	public void saveAttraction(Attraction attraction) {
 		attractionRepository.save(attraction);
 	}
+	
+	@Autowired
+	public Attraction findAttractionByCity(String city) {
+		List<Attraction> attr_list = attractionRepository.findByAttractionCityOrderByAttractionStarDesc(city);
+		return attr_list.get(0);
+	}
 }

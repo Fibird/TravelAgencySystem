@@ -24,4 +24,10 @@ public class CarRentalService {
 	public List<CarRental> findAll(){
 		return carRentalRepository.findAll();
 	}
+	
+	@Autowired
+	public CarRental findCarByCity(String rentalLoc,String returnLoc) {
+		List<CarRental> carlist = carRentalRepository.findByRentalLocAndReturnLocOrderByCarPriceAsc(rentalLoc,returnLoc);
+		return carlist.get(0);
+	}
 }
