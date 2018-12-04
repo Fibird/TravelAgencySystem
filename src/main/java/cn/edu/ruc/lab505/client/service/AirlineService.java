@@ -25,10 +25,12 @@ public class AirlineService {
 		airlineRepository.deleteById(id);
 	}
 	
-	@Autowired
 	public Airline getMinPriceAirline(String departureTime,String departure,String destination) {
 		List<Airline> airlinesList =  airlineRepository.findByDepartureTimeAndDepartureAndDestinationOrderByAirlinePriceAsc(departureTime,departure,destination);
-		return airlinesList.get(0);
+		if(airlinesList.size()==0)
+			return null;
+		else
+			return airlinesList.get(0);
 	}
 	
 	public void update(Airline airline) {

@@ -26,9 +26,11 @@ public class HotelService {
 		return hotelRepository.save(hotel);
 	}
 	
-	@Autowired
 	public Hotel findHotelByCity(String city) {
 		List<Hotel> hotellist = hotelRepository.findByHotelCityOrderByHotelPriceAsc(city);
-		return hotellist.get(0);
+		if(hotellist.size()==0)
+			return null;
+		else
+			return hotellist.get(0);
 	}
 }

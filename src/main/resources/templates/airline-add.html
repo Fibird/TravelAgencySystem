@@ -44,13 +44,13 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>起飞时间：</label>
 			<div class="formControls col-xs-8 col-sm-9" >
-				<input type="text"  th:field="*{departureTime}" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm',maxDate:'#F{$dp.$D(\'arrival_time\')||\'%y-%M-%d\'}' })" id="departure_time" name="departure_time" class="input-text Wdate" required />
+				<input type="text"  th:field="*{departureTime}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" id="departure_time" name="departure_time" class="input-text Wdate" required />
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>到达时间：</label>
 			<div class="formControls col-xs-8 col-sm-9" >
-				<input type="text" th:field="*{arrivalTime}" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm',minDate:'#F{$dp.$D(\'departure_time\')}' })" id="arrival_time" name="arrival_time" class="input-text Wdate" required />
+				<input type="text" th:field="*{arrivalTime}"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',readOnly:true})" id="arrival_time" name="arrival_time" class="input-text Wdate" required />
 			</div>
 		</div>
 

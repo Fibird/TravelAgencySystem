@@ -27,9 +27,11 @@ public class GuideService {
 		return guideRepository.save(guide);
 	}
 	
-	@Autowired
 	public Guide findGuideByAttractionId(int attractionId) {
 		List<Guide> guidelist = guideRepository.findByAttractionIdOderByCommentDesc(attractionId);
-		return guidelist.get(0);
+		if(guidelist.size()==0)
+			return null;
+		else
+			return guidelist.get(0);
 	}
 }

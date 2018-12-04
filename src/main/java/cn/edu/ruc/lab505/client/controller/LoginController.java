@@ -178,7 +178,8 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/usr-query.html", method = RequestMethod.POST)
+    @SuppressWarnings("unused")
+	@RequestMapping(value = "/usr-query.html", method = RequestMethod.POST)
     public ModelAndView postUsrQuery(@Valid Userrequest userrequest, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         
@@ -199,53 +200,90 @@ public class LoginController {
         Hotel hotel = hotelService.findHotelByCity(destination);
         Attraction attraction = attractionService.findAttractionByCity(destination);
         Guide guide = guideService.findGuideByAttractionId(attraction.getId());
-        float cost = departure_airline.getAirlinePrice() + return_airline.getAirlinePrice() + 
-        		carRental.getCarPrice() + hotel.getHotelPrice() + attraction.getAttractionPrice() +
-        		guide.getPrice();
+        float cost = 0;
         
 //        modelAndView.addObject("departure_airline", departure_airline);
 //        modelAndView.addObject("return_airline", return_airline);
 //        modelAndView.addObject("carRental", carRental);
 //        modelAndView.addObject("hotel", hotel);
         
-        modelAndView.addObject("departure_airline_message", 
-        		"起飞城市：" + departure_airline.getDeparture() + "\n" + 
-        		"起飞日期：" + departure_airline.getDepartureTime() + "\n" + 
-        		"目的地：" + departure_airline.getDestination() + "\n" +
-        		"机票价格：" + departure_airline.getAirlinePrice());
+        if(departure_airline!=null) {
+        	modelAndView.addObject("departure_airline_message", 
+            		"起飞城市：" + departure_airline.getDeparture() + "\n" + 
+            		"起飞日期：" + departure_airline.getDepartureTime() + "\n" + 
+            		"目的地：" + departure_airline.getDestination() + "\n" +
+            		"机票价格：" + departure_airline.getAirlinePrice());
+        	cost = cost + departure_airline.getAirlinePrice();
+        }
+        else
+        {
+        	modelAndView.addObject("departure_airline_message","");
+        }       	
+    
+        if(return_airline!=null) {
+        	modelAndView.addObject("return_airline_message", 
+            		"返航城市：" + return_airline.getDeparture() + "\n" + 
+            		"返航日期：" + return_airline.getDepartureTime() + "\n" + 
+            		"目的地：" + return_airline.getDestination() + "\n" +
+            		"机票价格：" + return_airline.getAirlinePrice());
+        	cost = cost + return_airline.getAirlinePrice();
+        }
+        else {
+        	modelAndView.addObject("return_airline_message","");
+        }
         
-        modelAndView.addObject("return_airline_message", 
-        		"返航城市：" + return_airline.getDeparture() + "\n" + 
-        		"返航日期：" + return_airline.getDepartureTime() + "\n" + 
-        		"目的地：" + return_airline.getDestination() + "\n" +
-        		"机票价格：" + return_airline.getAirlinePrice());
-        
-        modelAndView.addObject("hotel_message", 
-        		"宾馆名：" + hotel.getName() + "\n" + 
-        		"宾馆地址：" + hotel.getAddress() + "\n" + 
-        		"宾馆星级：" + hotel.getHotelStar() + "\n" +
-        		"宾馆价格：" + hotel.getHotelPrice() + "\n" +
-        		"预定时间：" + hotel.getHotelPrice());
-        
-        modelAndView.addObject("car_message", 
-        		"汽车品牌：" + carRental.getBrand() + "\n" + 
-        		"汽车车型" + carRental.getCarType() + "\n" + 
-        		"租车地点" + carRental.getRentalLoc() + "\n" +
-        		"还车地点" + carRental.getReturnLoc() + "\n" +
-        		"还车地点" + carRental.getReturnLoc() + "\n" +
-        		"租金" + carRental.getCarPrice());
-        
-        modelAndView.addObject("attraction_message", 
-        		"景点名：" + attraction.getName() + "\n" + 
-        		"景点电话" + attraction.getPhone() + "\n" + 
-        		"景点地址" + attraction.getAttractionAddress() + "\n" +
-        		"景点星级" + attraction.getAttractionStar() + "\n" +
-        		"门票价格" + attraction.getAttractionPrice());
-        
-        modelAndView.addObject("guide_message", 
-        		"导游名：" + guide.getName() + "\n" + 
-        		"导游电话" + guide.getPhone() + "\n" + 
-        		"导游价格" + guide.getPrice());
+        if(hotel!=null) {
+            modelAndView.addObject("hotel_message", 
+            		"宾馆名：" + hotel.getName() + "\n" + 
+            		"宾馆地址：" + hotel.getAddress() + "\n" + 
+            		"宾馆星级：" + hotel.getHotelStar() + "\n" +
+            		"宾馆价格：" + hotel.getHotelPrice() + "\n" +
+            		"预定时间：" + hotel.getHotelPrice());
+            cost = cost + hotel.getHotelPrice();
+        }
+        else {
+        	modelAndView.addObject("hotel_message", "");
+        }
+
+        if(carRental!=null) {
+            modelAndView.addObject("car_message", 
+            		"汽车品牌：" + carRental.getBrand() + "\n" + 
+            		"汽车车型" + carRental.getCarType() + "\n" + 
+            		"汽车车牌" + carRental.getCarPlate() + "\n" + 
+            		"租车地点" + carRental.getRentalLoc() + "\n" +
+            		"还车地点" + carRental.getReturnLoc() + "\n" +
+            		"还车地点" + carRental.getReturnLoc() + "\n" +
+            		"租金" + carRental.getCarPrice());
+            cost = cost + carRental.getCarPrice();
+        }
+        else {
+        	modelAndView.addObject("car_message", "");
+        }
+       
+        if(attraction!=null) {
+            modelAndView.addObject("attraction_message", 
+            		"景点名：" + attraction.getName() + "\n" + 
+            		"景点电话" + attraction.getPhone() + "\n" + 
+            		"景点地址" + attraction.getAttractionAddress() + "\n" +
+            		"景点星级" + attraction.getAttractionStar() + "\n" +
+            		"门票价格" + attraction.getAttractionPrice());
+            cost = cost + attraction.getAttractionPrice();
+        }
+        else {
+        	modelAndView.addObject("attraction_message", "");
+        }
+
+        if(guide!=null) {
+            modelAndView.addObject("guide_message", 
+            		"导游名：" + guide.getName() + "\n" + 
+            		"导游电话" + guide.getPhone() + "\n" + 
+            		"导游价格" + guide.getPrice());
+            cost = cost + guide.getPrice();
+        }
+        else {
+        	modelAndView.addObject("guide_message", "");
+        }
+
         
         modelAndView.addObject("cost","预计花销：" + cost); 
         		
