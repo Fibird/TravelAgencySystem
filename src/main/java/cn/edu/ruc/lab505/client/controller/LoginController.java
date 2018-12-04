@@ -143,22 +143,38 @@ public class LoginController {
         return modelAndView;
     }
     
-    @RequestMapping(value="/index-1", method = RequestMethod.GET)
-    public ModelAndView showindex(){
+    @RequestMapping(value="/usr-query.html", method = RequestMethod.GET)
+    public ModelAndView showUsrQuery(){
         ModelAndView modelAndView = new ModelAndView();
         Userrequest userrequest = new Userrequest();
         modelAndView.addObject("userrequest", userrequest);
-        modelAndView.setViewName("showindex");
+        modelAndView.setViewName("usr-query");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/index-1", method = RequestMethod.POST)
-    public ModelAndView request_post(@Valid User user, BindingResult bindingResult) {
+    @RequestMapping(value = "/usr-query.html", method = RequestMethod.POST)
+    public ModelAndView postUsrQuery(@Valid Userrequest userrequest, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println("aaaaaaaaaaaaaaaa");
+        System.out.println(userrequest.getAim());
+        System.out.println(Integer.toString(userrequest.getCost()));
+        System.out.println(userrequest.getDeparture_time());
+        System.out.println(userrequest.getDepature_point());
+        System.out.println(userrequest.getReturn_time());
         return modelAndView;
     }
 
+    @RequestMapping(value = "/usr-result.html", method = RequestMethod.GET)
+    public ModelAndView showUsrResult(@Valid Userrequest userrequest, BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println(userrequest.getAim());
+        System.out.println(Integer.toString(userrequest.getCost()));
+        System.out.println(userrequest.getDeparture_time());
+        System.out.println(userrequest.getDepature_point());
+        System.out.println(userrequest.getReturn_time());
+        modelAndView.setViewName("usr-query");
+        return modelAndView;
+    }
+    
 
 //    @RequestMapping(value="/home", method = RequestMethod.GET)
 //    public ModelAndView home(){
