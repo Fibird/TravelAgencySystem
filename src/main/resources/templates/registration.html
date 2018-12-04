@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Registration User</title>
+<title>Registration</title>
 <link rel="stylesheet" type="text/css"
 	th:href="@{/css/registration.css}" />
 <link rel="stylesheet"
@@ -24,12 +24,12 @@
 				<form autocomplete="off" action="#" th:action="@{/registration}"
 					th:object="${user}" method="post" class="form-horizontal"
 					role="form">
-					<h2>Registration User</h2>
+					<h2>Registration</h2>
 					<div class="form-group">
 						<div class="col-sm-9">
 							<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label> 
-								<input type="text" th:field="*{name}" placeholder="Name" class="form-control" />
+								class="validation-message"></label> <input type="text"
+								th:field="*{name}" placeholder="Name" class="form-control" />
 						</div>
 					</div>
 
@@ -61,10 +61,15 @@
 
 					<div class="form-group">
 						<div class="col-sm-9">
-							<input type="text" th:field="*{userType}" placeholder="userType"
+							<!--  input type="text" th:field="*{userType}" placeholder="userType"
 								class="form-control" /> <label
 								th:if="${#fields.hasErrors('userType')}" th:errors="*{userType}"
-								class="validation-message"></label>
+								class="validation-message"></label>-->
+							<select class="form-control" th:field="*{userType}"
+								id="user-type" name="brandclass" size="1">
+								<option value="user" selected>user</option>
+								<option value="admin">admin</option>
+							</select>
 						</div>
 					</div>
 
@@ -72,8 +77,7 @@
 
 					<div class="form-group">
 						<div class="col-sm-9">
-							<button type="submit" class="btn btn-primary btn-block">Register
-								User</button>
+							<button type="submit" class="btn btn-primary btn-block">Register</button>
 						</div>
 					</div>
 

@@ -203,7 +203,7 @@ public class LoginController {
               modelAndView.setViewName("index-1");
           }
           else {
-        	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
+//        	  modelAndView.addObject("memberMessage","Content Available Only for Users with Root Role");
         	  modelAndView.setViewName("index-2");
           }
           return modelAndView;

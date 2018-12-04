@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -36,8 +37,8 @@
 					<a href="#" class="dropDown_A">user <i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
 
-						<li><a href="#">切换账户</a></li>
-						<li><a href="#">退出</a></li>
+						<li><a th:href="@{/logout}">切换账户</a></li>
+						<li><a th:href="@{/logout}">退出</a></li>
 				</ul>
 			</li>
 
