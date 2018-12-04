@@ -22,12 +22,7 @@
 <body>
 <article class="page-container">
 	<form autocomplete="off" class="form form-horizontal" id="form-article-add" th:action="@{/user-add.html}" th:object="${user}" method="post" action="#">
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户ID：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="userid" name="userid" th:field="*{id}" required>
-			</div>
-		</div>
+
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -56,8 +51,14 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>用户类型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" class="input-text" value="" placeholder="" id="userkind" name="userkind" th:field="*{userType}" required>
+				<!--input type="text" class="input-text" value="" placeholder="" id="userkind" name="userkind" th:field="*{userType}" required-->
+				<select class="form-control" th:field="*{userType}"
+								id="user-type" name="brandclass" size="1">
+								<option value="user" selected>user</option>
+								<option value="admin">admin</option>
+							</select>
 			</div>
+			
 		</div>
 
 		<div class="row cl">
