@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -48,15 +49,15 @@ public class Attraction {
     private String attractionAddress;
     
     @Column(name = "attractionStar")
-    @NotEmpty(message = "*Please provide your attraction star")
+    @NotNull(message = "*Please provide your attraction star")
     private int attractionStar;
     
     @Column(name = "attractionComment")
     @NotEmpty(message = "*Please provide your attraction comment")
-    private int attractionComment;
+    private String attractionComment;
     
     @Column(name = "attractionPrice")
-    @NotEmpty(message = "*Please provide your attraction comment")
+    @NotNull(message = "*Please provide your attraction Price")
     private long attractionPrice;
     
     
@@ -109,10 +110,10 @@ public class Attraction {
 		return attractionStar;
 	}
     
-    public void setattractionComment(int attractionComment) {
+    public void setattractionComment(String attractionComment) {
 		this.attractionComment = attractionComment;
 	}
-    public int getAttractionComment() {
+    public String getAttractionComment() {
 		return attractionComment;
 	}
     

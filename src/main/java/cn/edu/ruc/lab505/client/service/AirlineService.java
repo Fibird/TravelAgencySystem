@@ -1,5 +1,7 @@
 package cn.edu.ruc.lab505.client.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,10 @@ public class AirlineService {
 	public void update(Airline airline) {
 		airline.setStatus(1);
 		airlineRepository.save(airline);
+	}
+	
+	public List<Airline> findAll() {
+		return airlineRepository.findAll();
 	}
 	
 	public AirlineService() {

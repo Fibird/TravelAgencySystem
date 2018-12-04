@@ -29,7 +29,7 @@
 		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 			<thead>
 				<tr class="text-c">
-					<th width="80">车辆ID</th>
+					<th width="80">车牌号</th>
 					<th width="120">车辆品牌</th>
 					<th width="120">车辆型号</th>
 					<th width="60">档位</th>
@@ -42,7 +42,7 @@
 			</thead>
 			<tbody th:remove="all-but-first">
 				<tr class="text-c" th:each="obj, objStat: ${carlist}">    
-		          <td th:text="${obj.getId()}">1</td>  
+		          <td th:text="${obj.getCarPlate()}">AL0000</td>  
 		          <td th:text="${obj.getBrand()}">zhou</td>
 		          <td th:text="${obj.getName()}">zhou</td>   
 		          <td th:text="${obj.getType()}">123456</td>

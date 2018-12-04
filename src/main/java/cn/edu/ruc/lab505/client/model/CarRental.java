@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ public class CarRental {
     @Column(name = "carId")
     private int id;
     
+    @Column(name = "carPlate")
+    @NotEmpty(message = "Please provide car plate!")
+    private String carPlate;
     
     @Column(name = "carBrand")
     @NotEmpty(message = "*Please provide car brand")
@@ -36,10 +40,22 @@ public class CarRental {
     private String name;
     
     @Column(name = "cartype")
-    @NotEmpty(message = "*Please provide car type, 0 for ")
+    @NotNull(message = "*Please provide car type, 0 for ")
     private int carType;
     
-    @Column(name = "rentalLoc")
+    public String getCarPlate() {
+		return carPlate;
+	}
+	public void setCarPlate(String carPlate) {
+		this.carPlate = carPlate;
+	}
+	public int getCarType() {
+		return carType;
+	}
+	public void setCarType(int carType) {
+		this.carType = carType;
+	}
+	@Column(name = "rentalLoc")
     @NotEmpty(message = "*Please provide car rental location")
     private String rentalLoc;
     
@@ -48,11 +64,11 @@ public class CarRental {
     private String returnLoc;
     
     @Column(name = "carRemaining")
-    @NotEmpty(message = "*Please provide car Remaining")
+    @NotNull(message = "*Please provide car Remaining")
     private int carRemaining;
     
     @Column(name = "carPrice")
-    @NotEmpty(message = "*Please provide car price")
+    @NotNull(message = "*Please provide car price")
     private long carPrice;
     
     public void setId(int id) {
