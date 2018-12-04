@@ -21,5 +21,8 @@ public class AttractionService {
 	public List<Attraction> findall() {
 		return attractionRepository.findAll();
 	}
-
+	
+	public void saveAttraction(Attraction attraction) {
+		attractionRepository.save(attraction);
+	}
 }
