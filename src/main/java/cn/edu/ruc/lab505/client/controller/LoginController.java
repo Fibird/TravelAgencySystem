@@ -196,10 +196,10 @@ public class LoginController {
                   .getAuthentication().getAuthorities());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
-        modelAndView.addObject("userName", "Welcome " + user.getName() + " " + " (" + user.getEmail() + ")");
+        modelAndView.addObject("userName", user.getName());
 
           if (roles.contains("USER")) {
-        	  modelAndView.addObject("memberMessage","Content Available Only for Users with User Role");
+//        	  modelAndView.addObject("memberMessage","Content Available Only for Users with User Role");
               modelAndView.setViewName("index-1");
           }
           else {

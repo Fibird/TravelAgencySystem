@@ -22,7 +22,7 @@
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-<title>Travel_proxy System</title>
+<title>Travel Proxy System</title>
 </head>
 <body>
 <header class="navbar-wrapper">
@@ -41,18 +41,17 @@
 					<li class="navbar-levelone "><a href="javascript:;">机票信息管理</a></li>
 					<li class="navbar-levelone"><a href="javascript:;">导游信息管理</a></li>
             -->
-				</li>
 			</ul>
 		</nav>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
-				<li>超级管理员</li>
+				<li>管理员</li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A"><span th:utext="${userName}"></span><i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
 
-						<li><a href="#">切换账户</a></li>
-						<li><a href="#">退出</a></li>
+						<li><a th:href="@{/logout}">切换账户</a></li>
+						<li><a th:href="@{/logout}">退出</a></li>
 				</ul>
 			</li>
 
