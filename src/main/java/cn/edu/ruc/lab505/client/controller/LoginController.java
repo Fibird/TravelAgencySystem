@@ -209,9 +209,9 @@ public class LoginController {
         
         if(departure_airline!=null) {
         	modelAndView.addObject("departure_airline_message", 
-            		"起飞城市：" + departure_airline.getDeparture() + "\n" + 
-            		"起飞日期：" + departure_airline.getDepartureTime() + "\n" + 
-            		"目的地：" + departure_airline.getDestination() + "\n" +
+            		"起飞城市：" + departure_airline.getDeparture() + "<br/>" + 
+            		"起飞日期：" + departure_airline.getDepartureTime() + "<br/>" + 
+            		"目的地：" + departure_airline.getDestination() + "<br/>" +
             		"机票价格：" + departure_airline.getAirlinePrice());
         	cost = cost + departure_airline.getAirlinePrice();
         }
@@ -222,9 +222,9 @@ public class LoginController {
     
         if(return_airline!=null) {
         	modelAndView.addObject("return_airline_message", 
-            		"返航城市：" + return_airline.getDeparture() + "\n" + 
-            		"返航日期：" + return_airline.getDepartureTime() + "\n" + 
-            		"目的地：" + return_airline.getDestination() + "\n" +
+            		"返航城市：" + return_airline.getDeparture() + "<br/>" + 
+            		"返航日期：" + return_airline.getDepartureTime() + "<br/>" + 
+            		"目的地：" + return_airline.getDestination() + "<br/>" +
             		"机票价格：" + return_airline.getAirlinePrice());
         	cost = cost + return_airline.getAirlinePrice();
         }
@@ -234,10 +234,10 @@ public class LoginController {
         
         if(hotel!=null) {
             modelAndView.addObject("hotel_message", 
-            		"宾馆名：" + hotel.getName() + "\n" + 
-            		"宾馆地址：" + hotel.getAddress() + "\n" + 
-            		"宾馆星级：" + hotel.getHotelStar() + "\n" +
-            		"宾馆价格：" + hotel.getHotelPrice() + "\n" +
+            		"宾馆名：" + hotel.getName() + "<br/>" + 
+            		"宾馆地址：" + hotel.getAddress() + "<br/>" + 
+            		"宾馆星级：" + hotel.getHotelStar() + "<br/>" +
+            		"宾馆价格：" + hotel.getHotelPrice() + "<br/>" +
             		"预定时间：" + hotel.getHotelPrice());
             cost = cost + hotel.getHotelPrice();
         }
@@ -247,13 +247,13 @@ public class LoginController {
 
         if(carRental!=null) {
             modelAndView.addObject("car_message", 
-            		"汽车品牌：" + carRental.getBrand() + "\n" + 
-            		"汽车车型" + carRental.getCarType() + "\n" + 
-            		"汽车车牌" + carRental.getCarPlate() + "\n" + 
-            		"租车地点" + carRental.getRentalLoc() + "\n" +
-            		"还车地点" + carRental.getReturnLoc() + "\n" +
-            		"还车地点" + carRental.getReturnLoc() + "\n" +
-            		"租金" + carRental.getCarPrice());
+            		"汽车品牌：" + carRental.getBrand() + "<br/>" + 
+            		"汽车车型：" + carRental.getCarType() + "<br/>" + 
+            		"汽车车牌：" + carRental.getCarPlate() + "<br/>" + 
+            		"租车地点：" + carRental.getRentalLoc() + "<br/>" +
+            		"还车地点：" + carRental.getReturnLoc() + "<br/>" +
+            		"还车地点：" + carRental.getReturnLoc() + "<br/>" +
+            		"租金：" + carRental.getCarPrice());
             cost = cost + carRental.getCarPrice();
         }
         else {
@@ -262,11 +262,11 @@ public class LoginController {
        
         if(attraction!=null) {
             modelAndView.addObject("attraction_message", 
-            		"景点名：" + attraction.getName() + "\n" + 
-            		"景点电话" + attraction.getPhone() + "\n" + 
-            		"景点地址" + attraction.getAttractionAddress() + "\n" +
-            		"景点星级" + attraction.getAttractionStar() + "\n" +
-            		"门票价格" + attraction.getAttractionPrice());
+            		"景点名：" + attraction.getName() + "<br/>" + 
+            		"景点电话：" + attraction.getPhone() + "<br/>" + 
+            		"景点地址：" + attraction.getAttractionAddress() + "<br/>" +
+            		"景点星级：" + attraction.getAttractionStar() + "<br/>" +
+            		"门票价格：" + attraction.getAttractionPrice());
             cost = cost + attraction.getAttractionPrice();
         }
         else {
@@ -275,9 +275,9 @@ public class LoginController {
 
         if(guide!=null) {
             modelAndView.addObject("guide_message", 
-            		"导游名：" + guide.getName() + "\n" + 
-            		"导游电话" + guide.getPhone() + "\n" + 
-            		"导游价格" + guide.getPrice());
+            		"导游名：" + guide.getName() + "<br/>" + 
+            		"导游电话：" + guide.getPhone() + "<br/>" + 
+            		"导游价格：" + guide.getPrice());
             cost = cost + guide.getPrice();
         }
         else {

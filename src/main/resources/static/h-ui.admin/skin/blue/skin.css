@@ -2,7 +2,7 @@
 /* 蓝色 */
 /*全站默认字体颜色*/
 a{color:#333}a:hover,a:focus,.maincolor,.maincolor a{color:#06c}
-.navbar{ background:#2d6dcc}/*顶部导航*/
+.navbar{ background:#47a3da}/*顶部导航*/
 	.navbar-logo,.navbar-logo-m,.navbar-slogan,.navbar-userbar{color:#fff}/*logo 及 用户信息文字颜色*/
 	.navbar-logo:hover,.navbar-logo-m:hover{color:#fff;text-decoration: none}
 	

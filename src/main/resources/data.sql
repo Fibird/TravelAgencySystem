@@ -1,7 +1,7 @@
 REPLACE INTO `role` VALUES (1,'ROOT');
 REPLACE INTO `role` VALUES (2,'USER');
 --replace into `t_user` values (100,"hello","123456","1339170","xinxi@ruc.edu.cn",1);
-replace into `car_rental`(carPlate,carBrand,carName,cartype,rentalLoc,returnLoc,carRemaining,carPrice) values("京AL0000","baoma","C300L",0,"北京","北京",5,300);
+replace into `car_rental`(carPlate,carBrand,carName,cartype,rentalLoc,returnLoc,carRemaining,carPrice) values("京AL0000","宝马","C300L",0,"北京","北京",5,300);
 replace into `hotels`(hotelId,hotelName,hotelPhone,hotelState,hotelCity,hotelAddress,appintmentTime,hotelRemaining,hotelStar,hotelComment,hotelPrice) values(67,"如家","6767","北京","北京","海淀","2018-12-12",5,9,100,3);
 
 
